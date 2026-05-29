@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+}
+
+@layer utilities {
+  .print-avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0;
+    size: auto;
+  }
+  
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background-color: #ffffff !important;
+    color: #1a1a1a !important;
+    padding: 1cm;
+  }
+
+  html, body, #root {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  /* Force background colors on specific elements */
+  .print-bg-dark {
+    background-color: #f0fdf4 !important;
+  }
+  
+  .print-text-gold {
+    color: #10b981 !important;
+  }
+
+  /* Hide elements that shouldn't be printed, if any */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ensure shadows are removed for better printing */
+  * {
+    box-shadow: none !important;
+  }
+}
