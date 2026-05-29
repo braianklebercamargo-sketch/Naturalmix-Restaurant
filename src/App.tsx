@@ -22,7 +22,7 @@ export default function App() {
 
   // Initialize catalog data from localStorage or initial configuration
   const [catalogData, setCatalogData] = useState<Category[]>(() => {
-    const saved = localStorage.getItem("naturalmix_catalog");
+    const saved = localStorage.getItem("naturalmix_catalog_v3");
     if (saved) {
       try {
         return JSON.parse(saved);
@@ -35,7 +35,7 @@ export default function App() {
 
   // Save to localStorage when catalogData changes
   useEffect(() => {
-    localStorage.setItem("naturalmix_catalog", JSON.stringify(catalogData));
+    localStorage.setItem("naturalmix_catalog_v3", JSON.stringify(catalogData));
   }, [catalogData]);
 
   useEffect(() => {
